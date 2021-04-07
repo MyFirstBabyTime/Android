@@ -1,23 +1,32 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import SignUpContainer from '../container/SignUpContainer';
 import LoginContainer from '../container/LoginContainer';
-import {Text} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import FirstLoginContainer from '../container/FirstLoginContainer';
+
 const RootRouter = () => {
   const Stack = createStackNavigator();
-  //   const navigation = useNavigation();
+  const TransitionScreenOptions = {
+    ...TransitionPresets.SlideFromRightIOS
+  };
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="asdasdtLogin">
+      <Stack.Navigator
+        initialRouteName="FirstLogin"
+        screenOptions={TransitionScreenOptions}>
         <Stack.Screen
-          name="asdasdtLogin"
+          name="FirstLogin"
+          component={FirstLoginContainer}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Login"
           component={LoginContainer}
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="FirstLogin"
+          name="SignUp"
           component={SignUpContainer}
           options={{headerShown: false}}
         />

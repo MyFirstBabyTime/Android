@@ -1,14 +1,15 @@
 import React from 'react';
-import {View, Text} from 'react-native';
 
-import RootRouter from './src/router'
-interface Props {}
+import {setCustomText} from 'react-native-global-props';
+import RootRouter from './src/router';
 
-const App: React.FC<Props> = () => {
-
-  return (
-    <RootRouter/>
-  );
-
+const customTextProps = {
+  style: {
+    fontFamily: 'Noto Sans KR',
+  },
+};
+const App = () => {
+  setCustomText(customTextProps);
+  return <RootRouter />;
 };
 export default App;
