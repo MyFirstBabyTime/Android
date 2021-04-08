@@ -20,7 +20,7 @@ export const Title = styled.Text`
   font-size: 22;
   font-weight: bold;
   margin-top: 15;
-  /* font-family: 'Noto Sans KR', sans-serif; */
+  
 `;
 export const MainBody = styled.View`
   width: 100%;

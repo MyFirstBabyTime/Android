@@ -1,6 +1,11 @@
-import React from 'react';
-import {Text} from 'react-native';
+import React, { useCallback } from 'react';
+import Login from '../components/Login/Login';
+import {useNavigation} from '@react-navigation/native';
 const LoginContainer = () => {
-  return <Text>라우팅ㅇㄴㅁㄴㅇㅇㄴasdasㅁ</Text>;
+  const navigation = useNavigation();
+  const goToBack = useCallback(()=>{
+    navigation.goBack();
+  },[])
+  return <Login goToBack={goToBack}/>;
 };
 export default LoginContainer;

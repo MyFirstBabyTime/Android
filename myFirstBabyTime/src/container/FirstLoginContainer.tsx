@@ -4,7 +4,7 @@ import {useNavigation} from '@react-navigation/native';
 const FirstLoginContainer = () =>{
     const navigation = useNavigation();
     const goToLogin = useCallback(()=>{
-        console.log('asdsd')
+     
         navigation.navigate('Login')
     }, [])
     return(
