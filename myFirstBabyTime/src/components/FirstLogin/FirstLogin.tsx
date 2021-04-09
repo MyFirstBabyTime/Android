@@ -4,9 +4,10 @@ import TitleImg from '../../assets/TitleImg/Title.png';
 import ButtonComponent from '../default/Button';
 interface Props {
   goToLogin: () => void;
+  goToSignUp : () => void;
 }
 
-const FirstLogin: React.FC<Props> = ({goToLogin}) => {
+const FirstLogin: React.FC<Props> = ({goToLogin, goToSignUp}) => {
   return (
     <S.Body>
       <S.Header>
@@ -15,7 +16,7 @@ const FirstLogin: React.FC<Props> = ({goToLogin}) => {
       </S.Header>
       <S.MainBody>
         <ButtonComponent backgroundColor="#D0463B" color="white" text='로그인하기' onPressFunc={goToLogin}></ButtonComponent>
-        <ButtonComponent backgroundColor="white" color="#D0463B" text='회원가입하기' onPressFunc={goToLogin}></ButtonComponent> 
+        <ButtonComponent backgroundColor="white" color="#D0463B" text='회원가입하기' onPressFunc={goToSignUp}></ButtonComponent> 
       </S.MainBody>
     </S.Body>
   );

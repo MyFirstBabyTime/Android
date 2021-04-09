@@ -17,7 +17,7 @@ export const IdTitle = styled.Text`
 export const Line = styled.View`
     background-color:black;
     width:100%;
-    height:0.7%;
+    height:1.7;
 `
 export const Input = styled.TextInput`
     width:100%;
@@ -30,5 +30,5 @@ export const EndLine = styled.View`
     background-color:black;
     width:100%;
     
-    height:0.5%;
+    height:0.5;
 `

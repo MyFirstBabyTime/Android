@@ -12,7 +12,7 @@ const InputComponent: React.FC<Props> = ({titleText, type}) => {
       <S.IdBox>
         <S.IdTitle>{titleText}</S.IdTitle>
       </S.IdBox>
-      <S.Line />
+      <S.Line />  
       <S.Input secureTextEntry={type}/>
       <S.EndLine /> 
     </S.Body>

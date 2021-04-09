@@ -1,6 +1,6 @@
 import React from 'react';
-import {Text} from 'react-native';
+import SignUp from '../components/SignUp/SignUp';
 const SignUpContainer = () => {
-  return <Text>render</Text>;
+  return <SignUp></SignUp>;
 };
 export default SignUpContainer;

@@ -1,11 +1,13 @@
-import React, { useCallback } from 'react';
+import React, {useCallback} from 'react';
 import Login from '../components/Login/Login';
-import {useNavigation} from '@react-navigation/native';
+import {useGoToBack, useGoToSignUp} from '../lib/hooks';
+
 const LoginContainer = () => {
-  const navigation = useNavigation();
-  const goToBack = useCallback(()=>{
-    navigation.goBack();
-  },[])
-  return <Login goToBack={goToBack}/>;
+  const {goToBack} = useGoToBack();
+  const {goToSignUp} = useGoToSignUp();
+  const goToMain = useCallback(() => {}, []);
+  return (
+    <Login goToBack={goToBack} goToMain={goToMain} goToSignUp={goToSignUp} />
+  );
 };
 export default LoginContainer;
