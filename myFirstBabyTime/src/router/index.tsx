@@ -4,7 +4,7 @@ import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import SignUpContainer from '../container/SignUpContainer';
 import LoginContainer from '../container/LoginContainer';
 import FirstLoginContainer from '../container/FirstLoginContainer';
-
+import CheckPhoneContainer from '../container/CheckPhoneContainer';
 const RootRouter = () => {
   const Stack = createStackNavigator();
   const TransitionScreenOptions = {
@@ -28,6 +28,11 @@ const RootRouter = () => {
         <Stack.Screen
           name="SignUp"
           component={SignUpContainer}
+          options={{headerShown: false}}
+        />
+         <Stack.Screen
+          name="CheckPhone"
+          component={CheckPhoneContainer}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

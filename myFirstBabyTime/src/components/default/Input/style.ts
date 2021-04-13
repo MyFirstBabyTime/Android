@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 export const Body = styled.View`
     width:100%;
-    height:18%;
+    height:13%;
 `
 export const IdBox = styled.View`
     height:30%;
