@@ -1,8 +1,12 @@
 import styled from 'styled-components/native';
-
+export const MainBody = styled.View`
+  width:100%;
+  height:100%;
+  background-color:white;
+`
 export const Body = styled.View`
   width: 100%;
-  height: 100%;
+  height: 70%;
   background-color: white;
 `;
 export const Header = styled.View`
@@ -22,14 +26,7 @@ export const Title = styled.Text`
   margin-top: 15;
   
 `;
-export const MainBody = styled.View`
-  width: 100%;
-  margin-top: 30%;
-  flex: 1;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-`;
+
 
 export const LoginButton = styled.TouchableOpacity<{color: string}>`
   margin: 0 auto;

@@ -8,7 +8,7 @@ interface Props {
 }
 
 const HeaderComponent: React.FC<Props> = ({titleText}) => {
-    const {goToBack} = useGoToBack();
+    const goToBack = useGoToBack();
   return (
     <S.Header>
       <TouchableOpacity activeOpacity={0.8} onPress={goToBack}>

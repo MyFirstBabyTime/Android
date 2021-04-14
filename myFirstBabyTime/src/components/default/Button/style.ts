@@ -1,5 +1,11 @@
 import styled from 'styled-components/native';
 
+export const Box = styled.View`
+  width:100%;
+  height:10%;
+  background-color:white;
+`
+
 export const LoginButton = styled.TouchableOpacity<{color: string}>`
   margin: 0 auto;
 
@@ -10,7 +16,7 @@ export const LoginButton = styled.TouchableOpacity<{color: string}>`
   height: 50;
   border: 1px solid;
   border-color: ${props => (props.color === 'white' ? '#D0463B' : 'white')};
-  border-radius: 5;
+  border-radius: 10;
   justify-content: center;
   align-items: center;
 `;

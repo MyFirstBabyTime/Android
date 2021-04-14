@@ -1,16 +1,20 @@
 import {useCallback} from 'react';
 import {useNavigation} from '@react-navigation/native';
-const navigation = useNavigation();
+
 
 export const useGoToBack = () =>{
+  const navigation = useNavigation();
   const goToBack = useCallback(() => {
+    console.log('백')
     navigation.goBack();
   }, []);
-  return {goToBack}
+  return goToBack
 }
 export const useGoToSignUp = ()=>{
+  const navigation = useNavigation();
   const goToSignUp = useCallback(() => {
+    console.log('앞ㄴㅁasaㅇ')
     navigation.navigate('SignUp');
   }, []);
-  return {goToSignUp}  
+  return goToSignUp
 }
