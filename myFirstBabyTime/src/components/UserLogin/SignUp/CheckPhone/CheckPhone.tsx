@@ -8,12 +8,16 @@ import PhoneButton from './PhoneButton';
 import Counter from './Counter';
 interface Props {
   showCheckPress: () => void;
-  sendMessage : boolean;
-  changeMessage : () => void;
+  sendMessage: boolean;
+  changeMessage: () => void;
 }
 
-const CheckPhone: React.FC<Props> = ({showCheckPress, changeMessage, sendMessage}) => {
-  console.log(sendMessage)
+const CheckPhone: React.FC<Props> = ({
+  showCheckPress,
+  changeMessage,
+  sendMessage,
+}) => {
+  console.log(sendMessage);
   return (
     <S.MainBody>
       <S.Body>
@@ -22,13 +26,21 @@ const CheckPhone: React.FC<Props> = ({showCheckPress, changeMessage, sendMessage
           titleText="문자인증"
           type={false}
           placeholder="- 없이 전화번호를 입력해주세요"
-          AddStyled={sendMessage ? <Counter/> :<PhoneButton Press={changeMessage}/>}
+          AddStyled={
+            sendMessage ? <Counter /> : <PhoneButton Press={changeMessage} />
+          }
         />
-        {sendMessage ? }
+        {sendMessage ? (
+          <InputComponent
+            titleText="인증번호"
+            type={false}
+            placeholder="인증번호를 입력해주세요"
+          />
+        ) : null}
       </S.Body>
       <ButtonComponent
-        color="#D0463B"
-        backgroundColor="white"
+        color={sendMessage ? 'white' : '#D0463B'}
+        backgroundColor={sendMessage ? '#D0463B' : 'white'}
         onPressFunc={showCheckPress}
         text="다음"
       />

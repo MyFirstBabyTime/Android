@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
-import Login from '../components/Login/Login';
-import {useGoToSignUp} from '../lib/hooks';
+import Login from '../../components/UserLogin/Login/Login';
+import {useGoToSignUp} from '../../lib/hooks/UseRouting';
 
 const LoginContainer = () => {
   const goToSignUp = useGoToSignUp();

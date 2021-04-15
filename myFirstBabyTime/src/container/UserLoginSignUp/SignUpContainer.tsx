@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react';
-import SignUp from '../components/SignUp/SignUp';
+import SignUp from '../../components/UserLogin/SignUp/SignUp';
 import {useNavigation} from '@react-navigation/native';
 const SignUpContainer = () => {
   const navigation = useNavigation();

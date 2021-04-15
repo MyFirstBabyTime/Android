@@ -2,7 +2,7 @@ import React from 'react';
 import * as S from './style';
 import LeftArrow from '../../../assets/LeftArrow/LeftArrow.png';
 import {TouchableOpacity} from 'react-native';
-import {useGoToBack} from '../../../lib/hooks';
+import {useGoToBack} from '../../../lib/hooks/UseRouting';
 interface Props {
   titleText: string;
 }

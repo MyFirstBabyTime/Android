@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react';
-import FirstLogin from '../components/FirstLogin/FirstLogin';
+import FirstLogin from '../../components/UserLogin/FirstLogin/FirstLogin';
 import {useNavigation} from '@react-navigation/native';
-import {useGoToSignUp} from '../lib/hooks';
+import {useGoToSignUp} from '../../lib/hooks/UseRouting';
 const FirstLoginContainer = () => {
   const goToSignUp = useGoToSignUp();
   console.log(goToSignUp)
