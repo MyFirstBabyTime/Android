@@ -1,5 +1,5 @@
 import React, {useState, useCallback, useEffect} from 'react';
-import {UseTimer} from '../../../../lib/hooks/UseTimer';
+import {UseTimer} from '../../../../../lib/hooks/UseTimer';
 import * as S from './style';
 const Counter = () => {
   return (

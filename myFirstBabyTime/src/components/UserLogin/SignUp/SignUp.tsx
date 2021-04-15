@@ -1,9 +1,10 @@
 import React from 'react';
 import * as S from './style';
-import LoginHeader from '../default/LoginHeader';
-import InputComponent from '../default/Input';
-import ButtonComponent from '../default/Button';
-import TebButton from '../default/TebButton';
+import LoginHeader from '../../default/LoginHeader';
+import InputComponent from '../../default/Input';
+import ButtonComponent from '../../default/Button';
+import TebButton from '../../default/TebButton';
+
 interface Props {
   goToNumber: () => void;
 }

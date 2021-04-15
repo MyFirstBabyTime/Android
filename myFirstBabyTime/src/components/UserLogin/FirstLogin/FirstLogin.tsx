@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './style';
-import TitleImg from '../../assets/TitleImg/Title.png';
-import ButtonComponent from '../default/Button';
+import TitleImg from '../../../assets/TitleImg/Title.png';
+import ButtonComponent from '../../default/Button';
 interface Props {
   goToLogin: () => void;
   goToSignUp: () => void;

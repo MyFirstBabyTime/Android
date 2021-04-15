@@ -1,17 +1,16 @@
 import React from 'react';
-import HeaderComponent from '../default/LoginHeader';
-import InputComponent from '../default/Input';
-
+import HeaderComponent from '../../default/LoginHeader';
+import InputComponent from '../../default/Input';
 import * as S from './style';
-import ButtonComponent from '../default/Button';
+import ButtonComponent from '../../default/Button';
 import {TouchableOpacity} from 'react-native';
-import TebButton from '../default/TebButton';
+import TebButton from '../../default/TebButton';
 interface Props {
   goToMain: () => void;
   goToSignUp: () => void;
 }
 const Login: React.FC<Props> = ({goToMain, goToSignUp}) => {
-  console.log(goToSignUp)
+  console.log(goToSignUp);
   return (
     <S.MainBody>
       <S.Body>

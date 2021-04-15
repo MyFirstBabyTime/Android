@@ -5,10 +5,11 @@ import SignUpContainer from '../container/UserLoginSignUp/SignUpContainer';
 import LoginContainer from '../container/UserLoginSignUp/LoginContainer';
 import FirstLoginContainer from '../container/UserLoginSignUp/FirstLoginContainer';
 import CheckPhoneContainer from '../container/UserLoginSignUp/CheckPhoneContainer';
+import SettingProfileContainer from '../container/UserLoginSignUp/SettingProfileContainer';
 const RootRouter = () => {
   const Stack = createStackNavigator();
   const TransitionScreenOptions = {
-    ...TransitionPresets.SlideFromRightIOS
+    ...TransitionPresets.SlideFromRightIOS,
   };
   return (
     <NavigationContainer>
@@ -30,15 +31,12 @@ const RootRouter = () => {
           component={SignUpContainer}
           options={{headerShown: false}}
         />
-         <Stack.Screen
+        <Stack.Screen
           name="CheckPhone"
           component={CheckPhoneContainer}
           options={{headerShown: false}}
         />
-        <Stack.Screen
-        name="SetProfile"
-        component={}
-        />
+        <Stack.Screen name="SetProfile" component={SettingProfileContainer} />
       </Stack.Navigator>
     </NavigationContainer>
   );
