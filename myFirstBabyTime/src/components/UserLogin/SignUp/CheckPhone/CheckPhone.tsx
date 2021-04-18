@@ -6,18 +6,22 @@ import ButtonComponent from '../../../default/Button';
 import TebButton from '../../../default/TebButton';
 import PhoneButton from './PhoneButton';
 import Counter from './Counter';
+
 interface Props {
-  showCheckPress: () => void;
+  goToSettingProfile: () => void;
   sendMessage: boolean;
   changeMessage: () => void;
+  settingPhoneNumber: (number: string) => void;
+  settingCertificat: (number: string) => void;
 }
 
 const CheckPhone: React.FC<Props> = ({
-  showCheckPress,
+  goToSettingProfile,
   changeMessage,
   sendMessage,
+  settingPhoneNumber,
+  settingCertificat,
 }) => {
-  console.log(sendMessage);
   return (
     <S.MainBody>
       <S.Body>
@@ -29,19 +33,21 @@ const CheckPhone: React.FC<Props> = ({
           AddStyled={
             sendMessage ? <Counter /> : <PhoneButton Press={changeMessage} />
           }
+          changeInput={settingPhoneNumber}
         />
         {sendMessage ? (
           <InputComponent
             titleText="인증번호"
             type={false}
             placeholder="인증번호를 입력해주세요"
+            changeInput={settingCertificat}
           />
         ) : null}
       </S.Body>
       <ButtonComponent
         color={sendMessage ? 'white' : '#D0463B'}
         backgroundColor={sendMessage ? '#D0463B' : 'white'}
-        onPressFunc={showCheckPress}
+        onPressFunc={sendMessage ? goToSettingProfile : undefined}
         text="다음"
       />
       <TebButton ImgArr={[false, true, false]} />

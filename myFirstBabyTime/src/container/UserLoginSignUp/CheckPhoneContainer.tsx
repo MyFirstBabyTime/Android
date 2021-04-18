@@ -1,21 +1,24 @@
 import React, {useCallback, useState} from 'react';
 import CheckPhone from '../../components/UserLogin/SignUp/CheckPhone/CheckPhone';
-
+import {useSetUser} from '../../lib/hooks/SetUser';
 import {useNavigation} from '@react-navigation/native';
 
 const CheckPhoneContainer = () => {
   const navigation = useNavigation();
   const [sendMessage, setSendMessage] = useState<boolean>(false);
+  const {settingPhoneNumber, settingCertificat} = useSetUser();
   const changeMessage = useCallback(() => {
     setSendMessage(!sendMessage);
   }, [sendMessage]);
-  const showCheckPress = useCallback(() => {
-    console.log('test');
+  const goToSettingProfile = useCallback(() => {
+    navigation.navigate('SetProfile');
   }, []);
   return (
     <CheckPhone
-      showCheckPress={showCheckPress}
+      goToSettingProfile={goToSettingProfile}
       sendMessage={sendMessage}
+      settingPhoneNumber={settingPhoneNumber}
+      settingCertificat={settingCertificat}
       changeMessage={changeMessage}
     />
   );

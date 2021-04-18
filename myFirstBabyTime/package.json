@@ -21,12 +21,14 @@
     "react-native-debugger-open": "0.3.25",
     "react-native-gesture-handler": "1.10.3",
     "react-native-global-props": "1.1.5",
+    "react-native-image-picker": "3.3.2",
     "react-native-reanimated": "2.1.0",
     "react-native-safe-area-context": "3.2.0",
     "react-native-screens": "3.0.0",
     "react-navigation": "4.4.4",
     "react-redux": "7.2.3",
-    "redux": "4.0.5"
+    "redux": "4.0.5",
+    "redux-devtools-extension": "2.13.9"
   },
   "devDependencies": {
     "@babel/core": "7.13.14",

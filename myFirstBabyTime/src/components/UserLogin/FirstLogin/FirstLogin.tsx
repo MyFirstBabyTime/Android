@@ -5,6 +5,7 @@ import ButtonComponent from '../../default/Button';
 interface Props {
   goToLogin: () => void;
   goToSignUp: () => void;
+
 }
 
 const FirstLogin: React.FC<Props> = ({goToLogin, goToSignUp}) => {
@@ -15,7 +16,7 @@ const FirstLogin: React.FC<Props> = ({goToLogin, goToSignUp}) => {
           <S.Img source={TitleImg} />
           <S.Title>육아는 처음이라</S.Title>
         </S.Header>
-      </S.Body>
+      </S.Body  >
       <S.MainBody>
         <ButtonComponent
           backgroundColor="#D0463B"

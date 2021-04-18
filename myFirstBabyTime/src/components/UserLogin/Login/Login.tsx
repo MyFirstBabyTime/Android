@@ -4,19 +4,31 @@ import InputComponent from '../../default/Input';
 import * as S from './style';
 import ButtonComponent from '../../default/Button';
 import {TouchableOpacity} from 'react-native';
-import TebButton from '../../default/TebButton';
 interface Props {
   goToMain: () => void;
   goToSignUp: () => void;
+  settingID: (id: string) => void;
+  settingPW: (pw: string) => void;
 }
-const Login: React.FC<Props> = ({goToMain, goToSignUp}) => {
+const Login: React.FC<Props> = ({
+  goToMain,
+  goToSignUp,
+  settingPW,
+  settingID,
+}) => {
   console.log(goToSignUp);
   return (
     <S.MainBody>
       <S.Body>
         <HeaderComponent titleText="로그인하기"></HeaderComponent>
-        <InputComponent titleText="로그인" type={false}></InputComponent>
-        <InputComponent titleText="비밀번호" type={true}></InputComponent>
+        <InputComponent
+          titleText="로그인"
+          type={false}
+          changeInput={settingID}></InputComponent>
+        <InputComponent
+          titleText="비밀번호"
+          type={true}
+          changeInput={settingPW}></InputComponent>
       </S.Body>
       <ButtonComponent
         color="white"

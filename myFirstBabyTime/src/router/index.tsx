@@ -6,6 +6,7 @@ import LoginContainer from '../container/UserLoginSignUp/LoginContainer';
 import FirstLoginContainer from '../container/UserLoginSignUp/FirstLoginContainer';
 import CheckPhoneContainer from '../container/UserLoginSignUp/CheckPhoneContainer';
 import SettingProfileContainer from '../container/UserLoginSignUp/SettingProfileContainer';
+import SetMyBabyContainer from '../container/UserLoginSignUp/SetMyBabyContainer';
 const RootRouter = () => {
   const Stack = createStackNavigator();
   const TransitionScreenOptions = {
@@ -36,7 +37,16 @@ const RootRouter = () => {
           component={CheckPhoneContainer}
           options={{headerShown: false}}
         />
-        <Stack.Screen name="SetProfile" component={SettingProfileContainer} />
+        <Stack.Screen
+          name="SetProfile"
+          component={SettingProfileContainer}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="SetMyBaby"
+          component={SetMyBabyContainer}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

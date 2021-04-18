@@ -5,7 +5,8 @@ interface Props {
   titleText: string;
   type: boolean;
   placeholder?: string;
-  AddStyled?: any;
+  AddStyled?: JSX.Element;
+  changeInput : (text:string)=>void;
 }
 
 const InputComponent: React.FC<Props> = ({
@@ -13,6 +14,7 @@ const InputComponent: React.FC<Props> = ({
   type,
   placeholder,
   AddStyled,
+  changeInput
 }) => {
   return (
     <S.Body>
@@ -25,6 +27,7 @@ const InputComponent: React.FC<Props> = ({
           secureTextEntry={type}
           placeholder={placeholder}
           placeholderTextColor="black"
+          onChange={ (e)=>changeInput(e.nativeEvent.text)}
         />
         {AddStyled}
       </S.Box>
