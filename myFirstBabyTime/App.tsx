@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {setCustomText} from 'react-native-global-props';
 import RootRouter from './src/router';
 import {Provider} from 'react-redux';
@@ -10,7 +9,7 @@ const customTextProps = {
   },
 };
 const App = () => {
-  console.log(store)
+  console.log(store);
   setCustomText(customTextProps);
   return (
     <Provider store={store}>

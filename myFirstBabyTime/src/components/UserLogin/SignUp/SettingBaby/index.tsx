@@ -8,9 +8,10 @@ import SettingGender from './SettingGender';
 
 interface Props{
   settingBabyName : (name : string) => void;
+  yearList : (now : number) => number[];
 }
 
-const SettingBaby:React.FC<Props> = ({settingBabyName}) => {
+const SettingBaby:React.FC<Props> = ({settingBabyName, yearList}) => {
   return (
     <S.MainBody>
       <S.Body>
@@ -22,7 +23,7 @@ const SettingBaby:React.FC<Props> = ({settingBabyName}) => {
           type={false}
           placeholder="이름을 입력해주세요"
         />
-        <SettingBirth />
+        <SettingBirth yearList={yearList}/>
         <SettingGender />
       </S.Body>
       <S.Box>
