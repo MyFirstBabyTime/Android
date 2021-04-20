@@ -10,6 +10,7 @@ interface Props {
   settingID: (id: string) => void;
   settingPW: (pw: string) => void;
   settingCheckPW: (checkPw: string) => void;
+  pwCheck: boolean;
 }
 
 const SignUp: React.FC<Props> = ({
@@ -17,6 +18,7 @@ const SignUp: React.FC<Props> = ({
   settingID,
   settingPW,
   settingCheckPW,
+  pwCheck
 }) => {
   return (
     <S.MainBody>
@@ -35,6 +37,7 @@ const SignUp: React.FC<Props> = ({
           placeholder="특수문자 포함 6글자 이상 입력해주세요"
         />
         <InputComponent
+          pwCheck={pwCheck}
           changeInput={settingCheckPW}
           titleText="비밀번호 확인"
           type={false}

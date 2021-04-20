@@ -6,12 +6,17 @@ import Input from '../../../default/Input';
 import SettingBirth from './SettingBirth';
 import SettingGender from './SettingGender';
 
-interface Props{
-  settingBabyName : (name : string) => void;
-  yearList : (now : number) => number[];
+interface Props {
+  settingBabyName: (name: string) => void;
+  yearList: (now: number) => number[];
+  dateReturn: (year: number, month: number) => number[];
 }
 
-const SettingBaby:React.FC<Props> = ({settingBabyName, yearList}) => {
+const SettingBaby: React.FC<Props> = ({
+  settingBabyName,
+  yearList,
+  dateReturn,
+}) => {
   return (
     <S.MainBody>
       <S.Body>
@@ -23,7 +28,7 @@ const SettingBaby:React.FC<Props> = ({settingBabyName, yearList}) => {
           type={false}
           placeholder="이름을 입력해주세요"
         />
-        <SettingBirth yearList={yearList}/>
+        <SettingBirth yearList={yearList} dateReturn={dateReturn}/>
         <SettingGender />
       </S.Body>
       <S.Box>

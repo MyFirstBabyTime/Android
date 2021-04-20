@@ -12,6 +12,7 @@ const CheckPhoneContainer = () => {
   }, [sendMessage]);
   const goToSettingProfile = useCallback(() => {
     navigation.navigate('SetProfile');
+    setSendMessage(false);
   }, []);
   return (
     <CheckPhone

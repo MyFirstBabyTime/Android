@@ -4,7 +4,6 @@ import {useNavigation} from '@react-navigation/native';
 import {useGoToSignUp} from '../../lib/hooks/Routing';
 
 const FirstLoginContainer = () => {
-  
   const goToSignUp = useGoToSignUp();
   const navigation = useNavigation();
   const goToLogin = useCallback(() => {

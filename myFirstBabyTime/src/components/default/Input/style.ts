@@ -10,13 +10,13 @@ export const IdBox = styled.View`
   display: flex;
   justify-content: center;
 `;
-export const IdTitle = styled.Text`
+export const IdTitle = styled.Text<{color : string}>`
   font-size: 15px;
-  color: #8d8d8d;
+  color: ${props => props.color};
   margin-left: 25;
 `;
-export const Line = styled.View`
-  background-color: black;
+export const Line = styled.View<{backgroundColor : string}>`
+  background-color: ${props => props.backgroundColor};
   width: 100%;
   height: 1.7;
 `;
@@ -28,8 +28,8 @@ export const Input = styled.TextInput`
   font-size: 15px;
 
 `;
-export const EndLine = styled.View`
-  background-color: black;
+export const EndLine = styled.View<{backgroundColor : string}>`
+  background-color: ${props => props.backgroundColor};
   width: 100%;
 
   height: 0.5;

@@ -6,7 +6,8 @@ interface Props {
   type: boolean;
   placeholder?: string;
   AddStyled?: JSX.Element;
-  changeInput : (text:string)=>void;
+  changeInput: (text: string) => void;
+  pwCheck?: boolean;
 }
 
 const InputComponent: React.FC<Props> = ({
@@ -14,25 +15,26 @@ const InputComponent: React.FC<Props> = ({
   type,
   placeholder,
   AddStyled,
-  changeInput
+  changeInput,
+  pwCheck,
 }) => {
   return (
     <S.Body>
       <S.IdBox>
-        <S.IdTitle>{titleText}</S.IdTitle>
+        <S.IdTitle color={pwCheck ? 'red' : '#8d8d8d'}>{titleText}</S.IdTitle>
       </S.IdBox>
-      <S.Line />
+      <S.Line backgroundColor={pwCheck ? 'red' : 'black'} />
       <S.Box>
         <S.Input
           secureTextEntry={type}
           placeholder={placeholder}
           placeholderTextColor="black"
-          onChange={ (e)=>changeInput(e.nativeEvent.text)}
+          onChange={e => changeInput(e.nativeEvent.text)}
         />
         {AddStyled}
       </S.Box>
 
-      <S.EndLine />
+      <S.EndLine backgroundColor={pwCheck ? 'red' : 'black'} />
     </S.Body>
   );
 };

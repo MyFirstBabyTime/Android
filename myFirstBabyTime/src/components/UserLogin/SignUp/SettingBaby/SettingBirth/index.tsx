@@ -2,6 +2,7 @@ import React, {useState, useCallback} from 'react';
 import * as S from './style';
 interface Props {
   yearList: (now: number) => number[];
+  dateReturn: (year: number, month: number) => number[];
 }
 interface DateDataInterface {
   year: number;
@@ -9,19 +10,13 @@ interface DateDataInterface {
   day: number;
 }
 const monthArr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-const SettingBirth: React.FC<Props> = ({yearList}) => {
+const SettingBirth: React.FC<Props> = ({yearList, dateReturn}) => {
   const [dateData, setDateData] = useState<DateDataInterface>({
     year: 0,
     month: 0,
     day: 0,
   });
 
-  const dateReturn = useCallback(() => {
-    let dateArr: number[] = [];
-    const j: number = new Date(dateData.year, dateData.month, 0).getDate();
-    for (let i = 0; i <= j; i++) dateArr.push(i);
-    return dateArr;
-  }, [dateData]);
   return (
     <S.Body>
       <S.Text>생년월일</S.Text>
@@ -51,8 +46,16 @@ const SettingBirth: React.FC<Props> = ({yearList}) => {
           </S.Picker>
         </S.BorderPicker>
         <S.BorderPicker>
-          <S.Picker width={100}>
-            {dateReturn().map(ele => (
+          <S.Picker
+            width={100}
+            selectedValue={`${dateData.day}`}
+            onValueChange={(_val, idx) =>
+              setDateData({
+                ...dateData,
+                day: dateReturn(dateData.year, dateData.month)[idx],
+              })
+            }>
+            {dateReturn(dateData.year, dateData.month).map(ele => (
               <S.Picker.Item label={`${ele}일`} />
             ))}
           </S.Picker>
