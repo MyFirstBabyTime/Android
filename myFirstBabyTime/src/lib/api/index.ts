@@ -1,9 +1,13 @@
 import axios from 'axios';
 
-
-const client = axios.create({
+const apiDefault = () => {
+  const instance = axios.create({
     baseURL: process.env.BASE_URL,
-})
+    headers: {
+      Authorizion: 'dasdsdas',
+    },
+  });
+  return instance;
+};
 
-
-export default client;
+export default apiDefault;
