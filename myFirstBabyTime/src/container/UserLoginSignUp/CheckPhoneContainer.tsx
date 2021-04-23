@@ -5,7 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 import {checkIsNotBlank} from '../../lib/utills';
 import {useSelector} from 'react-redux';
 import {ReducerType} from '../../redux/store';
-import {certifyPhone} from '../../lib/api/SignUp';
+import {certifyPhone, certifyCode} from '../../lib/api/SignUp';
 const CheckPhoneContainer = () => {
   const navigation = useNavigation();
   const {userPhoneNumber, userCertificationNumber} = useSelector(
@@ -13,16 +13,22 @@ const CheckPhoneContainer = () => {
   );
   const [sendMessage, setSendMessage] = useState<boolean>(false);
   const {settingPhoneNumber, settingCertificat} = useSetUser();
-  const changeMessage = useCallback(() => {
-    setSendMessage(!sendMessage);
-  }, [sendMessage]);
+  const changeMessage = useCallback(async () => {
+    try {
+      const res = await certifyPhone(userPhoneNumber);
+      if (res.status === 200) setSendMessage(!sendMessage);
+    } catch (err) {
+      console.log(err);
+    }
+  }, [sendMessage, userPhoneNumber]);
   const goToSettingProfile = useCallback(async () => {
     try {
       checkIsNotBlank({userPhoneNumber, userCertificationNumber});
-      const res = await certifyPhone(userPhoneNumber);
-      console.log(res);
-      navigation.navigate('SetProfile');
-      setSendMessage(false);
+      const res = await certifyCode(userCertificationNumber, userPhoneNumber);
+      if (res.status === 200) {
+        navigation.navigate('SetProfile');
+        setSendMessage(false);
+      }
     } catch (err) {
       console.log(err);
     }

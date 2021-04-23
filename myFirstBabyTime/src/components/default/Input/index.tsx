@@ -6,7 +6,7 @@ interface Props {
   type: boolean;
   placeholder?: string;
   AddStyled?: JSX.Element;
-  changeInput: (text: string) => void;
+  changeInput: (text:string) => void;
   pwCheck?: boolean;
 }
 

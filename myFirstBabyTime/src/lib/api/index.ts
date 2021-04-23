@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const apiDefault = () => {
   const instance = axios.create({
-    baseURL: process.env.BASE_URL,
+    baseURL: 'http://54.180.165.105:8000',
     headers: {
       Authorizion: 'dasdsdas',
     },
