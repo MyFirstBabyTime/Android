@@ -5,15 +5,15 @@ import InputImage from '../../../default/InputImage';
 import InputComponent from '../../../default/Input';
 import ButtonComponent from '../../../default/Button';
 import TebButton from '../../../default/TebButton';
-import {useGoToSetBaby} from '../../../../lib/hooks/Routing';
-import {useSelector} from 'react-redux'
+import {useSelector} from 'react-redux';
 import {ReducerType} from '../../../../redux/store';
 interface Props {
   settingName: (name: string) => void;
+  signUpHandler: () => void;
 }
 
-const SettingProfile: React.FC<Props> = ({settingName}) => {
-  const test = useSelector((store:ReducerType) => store.setUserState.userName)
+const SettingProfile: React.FC<Props> = ({settingName, signUpHandler}) => {
+  const test = useSelector((store: ReducerType) => store.setUserState.userName);
   return (
     <S.MainBody>
       <S.Body>
@@ -30,7 +30,7 @@ const SettingProfile: React.FC<Props> = ({settingName}) => {
         color="white"
         text="다음"
         backgroundColor="#D0463B"
-        onPressFunc={useGoToSetBaby(true)}
+        onPressFunc={signUpHandler}
       />
       <TebButton ImgArr={[false, false, true]} />
     </S.MainBody>

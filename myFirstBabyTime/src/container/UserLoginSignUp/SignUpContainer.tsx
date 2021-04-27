@@ -6,6 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import {useSetUser} from '../../lib/hooks/SetUser';
 import {checkIsNotBlank} from '../../lib/utills';
 const SignUpContainer = () => {
+  const navigation = useNavigation();
   const {settingID, settingPW, settingCheckPW} = useSetUser();
   const [pwCheck, changePwCheck] = useState<boolean>(false);
   const {userPW, userCheckPW, userID} = useSelector(
@@ -13,10 +14,14 @@ const SignUpContainer = () => {
   );
   const goToNumber = useCallback(() => {
     try {
-      checkIsNotBlank({userID, userPW, userCheckPW});
+      checkIsNotBlank({
+        userID: {userID, min: 4, max: 20},
+        userPW: {userPW, min: 6, max: 20},
+        userCheckPW: {userCheckPW, min: 6, max: 20},
+      });
       if (userPW !== userCheckPW) changePwCheck(!pwCheck);
-      else{
-
+      else {
+        navigation.navigate('CheckPhone');
       }
     } catch (err) {
       console.log(`${err}입력 안됨`);

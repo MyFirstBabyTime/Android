@@ -30,7 +30,6 @@ const InputComponent: React.FC<Props> = ({
           placeholder={placeholder}
           placeholderTextColor="black"
           onChange={e => {
-            // console.log(e.nativeEvent);
             changeInput(e.nativeEvent.text);
           }}
         />

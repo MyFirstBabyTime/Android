@@ -9,7 +9,6 @@ const customTextProps = {
   },
 };
 const App = () => {
-  console.log(store);
   setCustomText(customTextProps);
   return (
     <Provider store={store}>

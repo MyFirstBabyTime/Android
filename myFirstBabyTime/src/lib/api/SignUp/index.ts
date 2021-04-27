@@ -7,12 +7,18 @@ export const certifyPhone = (phone_number: string) => {
     {},
   );
 };
-export const certifyCode = (code :  string, phone_number : string) =>{
+export const certifyCode = (code: string, phone_number: string) => {
   return apiDefault().post<ResDefault>(
-    `/phones/phone-number/${phone_number}/certification`,{certify_code : parseInt(code)}
-  )
-}
+    `/phones/phone-number/${phone_number}/certification`,
+    {certify_code: parseInt(code)},
+  );
+};
 
-export const signUp  = (id : string, pw: string, name: string,phone_number: string) => {
-  return apiDefault().post('/parents',{id,pw,name,phone_number})
-}
+export const signUp = (
+  id: string,
+  pw: string,
+  name: string,
+  phone_number: string,
+) => {
+  return apiDefault().post('/parents', {id, pw, name, phone_number});
+};
