@@ -1,6 +1,8 @@
 import {useCallback} from 'react';
 import {useNavigation} from '@react-navigation/native';
-
+import {signUp} from '../../api/SignUp/index';
+import {useSelector} from 'react-redux';
+import {ReducerType} from '../../../redux/store';
 export const useGoToBack = () => {
   const navigation = useNavigation();
   const goToBack = useCallback(() => {
@@ -15,10 +17,21 @@ export const useGoToSignUp = () => {
   }, []);
   return goToSignUp;
 };
-export const useGoToSetBaby = () => {
-  const navigation = useNavigation();
-  const goToSetBaby = useCallback(() => {
-    console.log('asddas')
+export const useGoToSetBaby = (first: boolean) => {
+  const goToSetBaby = useCallback(async () => {
+    const navigation = useNavigation();
+    const {userID, userPW, userPhoneNumber, userName} = useSelector(
+      (store: ReducerType) => store.setUserState,
+    );
+    if (first) {
+      try {
+        const res = await signUp(userID, userPW, userName, userPhoneNumber);
+      } catch (err) {
+        console.log(err);
+        return 0;
+      }
+    }
+    console.log('asddas');
     navigation.navigate('SetMyBaby');
   }, []);
   return goToSetBaby;

@@ -14,7 +14,6 @@ interface Props {
 
 const SettingProfile: React.FC<Props> = ({settingName}) => {
   const test = useSelector((store:ReducerType) => store.setUserState.userName)
-  console.log(`테스트 : ${test}`)
   return (
     <S.MainBody>
       <S.Body>
@@ -31,7 +30,7 @@ const SettingProfile: React.FC<Props> = ({settingName}) => {
         color="white"
         text="다음"
         backgroundColor="#D0463B"
-        onPressFunc={useGoToSetBaby()}
+        onPressFunc={useGoToSetBaby(true)}
       />
       <TebButton ImgArr={[false, false, true]} />
     </S.MainBody>

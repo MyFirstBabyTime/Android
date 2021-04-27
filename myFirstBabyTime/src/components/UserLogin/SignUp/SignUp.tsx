@@ -4,7 +4,6 @@ import LoginHeader from '../../default/LoginHeader';
 import InputComponent from '../../default/Input';
 import ButtonComponent from '../../default/Button';
 import TebButton from '../../default/TebButton';
-
 interface Props {
   goToNumber: () => void;
   settingID: (id: string) => void;
@@ -18,7 +17,7 @@ const SignUp: React.FC<Props> = ({
   settingID,
   settingPW,
   settingCheckPW,
-  pwCheck
+  pwCheck,
 }) => {
   return (
     <S.MainBody>

@@ -11,12 +11,13 @@ const SignUpContainer = () => {
   const {userPW, userCheckPW, userID} = useSelector(
     (store: ReducerType) => store.setUserState,
   );
-  const navigation = useNavigation();
   const goToNumber = useCallback(() => {
     try {
       checkIsNotBlank({userID, userPW, userCheckPW});
       if (userPW !== userCheckPW) changePwCheck(!pwCheck);
-      else navigation.navigate('CheckPhone');
+      else{
+
+      }
     } catch (err) {
       console.log(`${err}입력 안됨`);
     }

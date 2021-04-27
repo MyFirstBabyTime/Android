@@ -1,4 +1,4 @@
-import React, {ReactFragment} from 'react';
+import React, {useState} from 'react';
 import * as S from './style';
 
 interface Props {
@@ -6,7 +6,7 @@ interface Props {
   type: boolean;
   placeholder?: string;
   AddStyled?: JSX.Element;
-  changeInput: (text:string) => void;
+  changeInput: (text: string) => void;
   pwCheck?: boolean;
 }
 
@@ -29,8 +29,12 @@ const InputComponent: React.FC<Props> = ({
           secureTextEntry={type}
           placeholder={placeholder}
           placeholderTextColor="black"
-          onChange={e => changeInput(e.nativeEvent.text)}
+          onChange={e => {
+            // console.log(e.nativeEvent);
+            changeInput(e.nativeEvent.text);
+          }}
         />
+
         {AddStyled}
       </S.Box>
 

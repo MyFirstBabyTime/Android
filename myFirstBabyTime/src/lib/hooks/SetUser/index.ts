@@ -12,6 +12,7 @@ import {
 export const useSetUser = () => {
   const dispatch = useDispatch();
   const settingID = useCallback((id: string) => {
+    // console.log(id)
     dispatch(setID(id));
   }, []);
   const settingPW = useCallback((pw: string) => {

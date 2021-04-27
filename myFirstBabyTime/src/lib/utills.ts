@@ -8,7 +8,7 @@ interface CheckBlankInterface {
   userBabyName?: string;
 }
 
-export const checkIsNotBlank = (obj: any): boolean => {
+export const checkIsNotBlank = (obj: object): boolean => {
   for (let i in obj) {
     if (obj[i] === '') {
       throw i;
@@ -16,13 +16,3 @@ export const checkIsNotBlank = (obj: any): boolean => {
   }
   return true;
 };
-// export const checkIsNotBlank = (obj: object): boolean => {
-//   const propertys: string[] = Object.keys(obj);
-//   propertys.forEach((property: string) => {
-//     if (obj[property] === "") {
-//       throw property;
-//     }
-//   });
-
-//   return true;
-// };
