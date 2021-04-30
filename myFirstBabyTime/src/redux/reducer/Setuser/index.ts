@@ -6,8 +6,8 @@ import LoginAction, {
   SET_CERTIFICATION_NUMBER,
   SET_NAME,
   SET_BABY_NAME,
+  SET_PROFILE_PICTURE,
 } from '../../actions/SetUser/Login';
-
 export interface initalInterface {
   userID: string;
   userPW: string;
@@ -16,6 +16,7 @@ export interface initalInterface {
   userCertificationNumber: string;
   userName: string;
   userBabyName: string;
+  userPicture: object;
 }
 const initialState = {
   userID: '',
@@ -25,6 +26,7 @@ const initialState = {
   userCertificationNumber: '',
   userName: '',
   userBabyName: '',
+  userPicture: {},
 };
 const setUserState = (
   state: initalInterface = initialState,
@@ -65,6 +67,11 @@ const setUserState = (
       return {
         ...state,
         userBabyName: action.payload,
+      };
+    case SET_PROFILE_PICTURE:
+      return {
+        ...state,
+        userPicture: action.payload,
       };
     default:
       return state;

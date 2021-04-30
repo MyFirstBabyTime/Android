@@ -23,7 +23,10 @@ const CheckPhoneContainer = () => {
   }, [sendMessage, userPhoneNumber]);
   const goToSettingProfile = useCallback(async () => {
     try {
-      checkIsNotBlank({userPhoneNumber, userCertificationNumber});
+      checkIsNotBlank({
+        userPhoneNumber: {userPhoneNumber, min: 10, max: 11},
+        userCertificationNumber: {userCertificationNumber, min: 5, max: 6},
+      });
       const res = await certifyCode(userCertificationNumber, userPhoneNumber);
       if (res.status === 200) {
         navigation.navigate('SetProfile');

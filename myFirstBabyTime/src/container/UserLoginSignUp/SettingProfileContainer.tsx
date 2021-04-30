@@ -6,7 +6,7 @@ import {useSelector} from 'react-redux';
 import {ReducerType} from '../../redux/store';
 import {useNavigation} from '@react-navigation/native';
 const SettingProfileContainer = () => {
-  const {userID, userPW, userName, userPhoneNumber} = useSelector(
+  const {userID, userPW, userName, userPhoneNumber, userPicture} = useSelector(
     (store: ReducerType) => store.setUserState,
   );
   const navigation = useNavigation();
@@ -15,7 +15,13 @@ const SettingProfileContainer = () => {
     console.log('클릭');
 
     try {
-      const res = await signUp(userID, userPW, userName, userPhoneNumber);
+      const res = await signUp(
+        userID,
+        userPW,
+        userName,
+        userPhoneNumber,
+        userPicture,
+      );
       if (res.status === 200) navigation.navigate('SetMyBaby');
     } catch (err) {
       console.log(err);
