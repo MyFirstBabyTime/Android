@@ -1,12 +1,12 @@
 import styled from 'styled-components/native';
 
 export const Body = styled.View`
-margin-top:5%;
+margin-top:23;
   width: 100%;
-  height: 20%;
+  height: 90;
 `;
 export const IdBox = styled.View`
-  height: 30%;
+  height: 45;
   display: flex;
   justify-content: center;
 `;

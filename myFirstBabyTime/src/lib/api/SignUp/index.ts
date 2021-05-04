@@ -22,18 +22,20 @@ export const signUp = (
   profileImg: object,
 ) => {
   const profile: FormData = new FormData();
-  const l = `data:image/png;base64,${profileImg['base64']}`;
-  console.log(l);
   profile.append('profile', {
     name: profileImg['fileName'],
-    uri: l,
-    type: profileImg['type'],
+    uri: profileImg['uri'],
+    type: profileImg['type'] || 'image/jpeg',
   });
   profile.append('id', id);
   profile.append('pw', pw);
   profile.append('name', name);
   profile.append('phone_number', phone_number);
   return apiDefault().post('/parents', profile, {
-    headers: {'Content-Type': 'multipart/form-data'},
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
   });
 };
+
+// data:image/jpeg;base64,

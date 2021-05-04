@@ -5,9 +5,10 @@ export const Box = styled.View`
   justify-content: center;
   align-items: center;
   margin-left: 10;
-  position:absolute;
-    left:140;
-    bottom:0;
+  position: absolute;
+  left: 140;
+  /* bottom: 0; */
+  margin-top:124.%;
 `;
 
 export const ImgBox = styled.View`
@@ -16,7 +17,6 @@ export const ImgBox = styled.View`
   display: flex;
   margin: 0 auto;
   flex-direction: row;
-  
 `;
 export const Img = styled.Image`
   margin-left: 10;

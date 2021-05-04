@@ -6,6 +6,6 @@ export const MainBody = styled.View`
 `
 export const Body = styled.View`
     width: 100%;
-    height:70%;
+    height:550;
     background-color:white;
 `

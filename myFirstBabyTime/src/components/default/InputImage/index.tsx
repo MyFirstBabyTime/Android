@@ -9,12 +9,11 @@ const InputImage = () => {
   const [inputImg, setInputImg] = useState<object>(DefaultImage);
   const dispatch = useDispatch();
   const pickImage = e => {
-    console.log(e.target);
-    launchImageLibrary({mediaType: 'photo', includeBase64: true}, res => {
+    launchImageLibrary({mediaType: 'photo'}, res => {
       if (res.didCancel) setInputImg(DefaultImage);
       else setInputImg(res);
     });
-  }; //인풋 이미지 변경
+  };
   useEffect(() => {
     dispatch(setProfilePciture(inputImg));
   }, [inputImg]);

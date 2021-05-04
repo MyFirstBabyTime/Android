@@ -14,7 +14,7 @@ const LoginContainer = () => {
   const goToSignUp = useGoToSignUp();
   const goToMain = useCallback(async () => {
     try{
-      checkIsNotBlank({userID, userPW})
+      // checkIsNotBlank({userID, userPW})
     }
     catch(err){
       console.log(err)
