@@ -9,7 +9,7 @@ const InputImage = () => {
   const [inputImg, setInputImg] = useState<object>(DefaultImage);
   const dispatch = useDispatch();
   const pickImage = e => {
-    launchImageLibrary({mediaType: 'photo'}, res => {
+    launchImageLibrary({mediaType: 'photo', includeBase64: true}, res => {
       if (res.didCancel) setInputImg(DefaultImage);
       else setInputImg(res);
     });

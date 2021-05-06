@@ -27,6 +27,7 @@ export const signUp = (
     uri: profileImg['uri'],
     type: profileImg['type'] || 'image/jpeg',
   });
+  // profile.append('profile', profileImg['uri']);
   profile.append('id', id);
   profile.append('pw', pw);
   profile.append('name', name);
