@@ -22,11 +22,16 @@ export const signUp = (
   profileImg: object,
 ) => {
   const profile: FormData = new FormData();
-  profile.append('profile', {
-    name: profileImg['fileName'],
-    uri: profileImg['uri'],
-    type: profileImg['type'] || 'image/jpeg',
-  });
+  profile.append(
+    'profile',
+    JSON.stringify({
+      name: profileImg['fileName'],
+      // uri: profileImg['uri'],
+      data: `data:image/png;base64,${profileImg['base64']}`,
+      // uri: `data:image/png;base64,${profileImg['base64']}`,
+      type: profileImg['type'] || 'image/jpeg',
+    }),
+  );
   // profile.append('profile', profileImg['uri']);
   profile.append('id', id);
   profile.append('pw', pw);
