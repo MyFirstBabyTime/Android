@@ -16,7 +16,7 @@ export const GenderBox = styled.View`
 export const Text = styled.Text`
   color: #8d8d8d;
 `;
-export const Gender = styled.View`
+export const Gender = styled.View<{sex: number}>`
   margin-right: 10;
   display: flex;
   justify-content: center;
@@ -25,5 +25,6 @@ export const Gender = styled.View`
   border-radius: 5;
   width: 100%;
   height: 100%;
+  background-color: ${props => (props.sex ? '#D0463B' : 'white')};
 `;
 export const GenderText = styled.Text``;

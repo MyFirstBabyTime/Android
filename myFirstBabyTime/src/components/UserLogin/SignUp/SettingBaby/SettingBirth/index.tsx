@@ -1,4 +1,6 @@
 import React, {useState, useCallback} from 'react';
+import {useDispatch} from 'react-redux';
+import {setBabyDate} from '../../../../../redux/actions/SetUser/Login';
 import * as S from './style';
 interface Props {
   yearList: (now: number) => number[];
@@ -16,7 +18,7 @@ const SettingBirth: React.FC<Props> = ({yearList, dateReturn}) => {
     month: 0,
     day: 0,
   });
-
+  const dispatch = useDispatch();
   return (
     <S.Body>
       <S.Text>생년월일</S.Text>
@@ -26,7 +28,12 @@ const SettingBirth: React.FC<Props> = ({yearList, dateReturn}) => {
             width={120}
             selectedValue={`${dateData.month}`}
             onValueChange={(val, idx) =>
-              setDateData({...dateData, year: yearList(21)[idx]})
+              dispatch(
+                setBabyDate({
+                  key: 'babyYear',
+                  contents: String(yearList(21)[idx]),
+                }),
+              )
             }>
             {yearList(21).map(ele => (
               <S.Picker.Item label={`${ele}년`} />
@@ -38,7 +45,13 @@ const SettingBirth: React.FC<Props> = ({yearList, dateReturn}) => {
             width={90}
             selectedValue={`${dateData.month}`}
             onValueChange={(val, idx) =>
-              setDateData({...dateData, month: monthArr[idx]})
+              dispatch(
+                setBabyDate({
+                  key: 'babyMonth',
+                  contents:
+                    monthArr[idx] < 10 ? `0${monthArr[idx]}` : String(monthArr),
+                }),
+              )
             }>
             {monthArr.map(ele => {
               return <S.Picker.Item label={`${ele}`} />;
@@ -50,10 +63,15 @@ const SettingBirth: React.FC<Props> = ({yearList, dateReturn}) => {
             width={100}
             selectedValue={`${dateData.day}`}
             onValueChange={(_val, idx) =>
-              setDateData({
-                ...dateData,
-                day: dateReturn(dateData.year, dateData.month)[idx],
-              })
+              dispatch(
+                setBabyDate({
+                  key: 'babyDate',
+                  contents:
+                    dateReturn(dateData.year, dateData.month)[idx] < 10
+                      ? `0${dateReturn(dateData.year, dateData.month)[idx]}`
+                      : String(dateReturn(dateData.year, dateData.month)[idx]),
+                }),
+              )
             }>
             {dateReturn(dateData.year, dateData.month).map(ele => (
               <S.Picker.Item label={`${ele}일`} />

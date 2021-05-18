@@ -5,17 +5,20 @@ import InputImage from '../../../default/InputImage';
 import Input from '../../../default/Input';
 import SettingBirth from './SettingBirth';
 import SettingGender from './SettingGender';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 interface Props {
   settingBabyName: (name: string) => void;
   yearList: (now: number) => number[];
   dateReturn: (year: number, month: number) => number[];
+  babyEnrollment: () => void;
 }
 
 const SettingBaby: React.FC<Props> = ({
   settingBabyName,
   yearList,
   dateReturn,
+  babyEnrollment,
 }) => {
   return (
     <S.MainBody>
@@ -28,13 +31,15 @@ const SettingBaby: React.FC<Props> = ({
           type={false}
           placeholder="이름을 입력해주세요"
         />
-        <SettingBirth yearList={yearList} dateReturn={dateReturn}/>
+        <SettingBirth yearList={yearList} dateReturn={dateReturn} />
         <SettingGender />
       </S.Body>
       <S.Box>
-        <S.LoginButton activeOpacity={0.8} color="#D0463B">
-          <S.LoginText color="white">등록하기</S.LoginText>
-        </S.LoginButton>
+        <TouchableOpacity onPress={babyEnrollment}>
+          <S.LoginButton activeOpacity={0.8} color="#D0463B">
+            <S.LoginText color="white">등록하기</S.LoginText>
+          </S.LoginButton>
+        </TouchableOpacity>
       </S.Box>
       <S.AddTextBox>
         <S.AddText>*지금 아이 등록을 하지 않아도 마이페이지에서</S.AddText>

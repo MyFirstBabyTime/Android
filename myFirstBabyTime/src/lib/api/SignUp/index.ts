@@ -1,6 +1,6 @@
 import apiDefault from '../index';
 import {ResDefault} from '../../payloads';
-
+import {SignUpRes} from '../../payloads/SignUpPayload';
 export const certifyPhone = (phone_number: string) => {
   return apiDefault().post<ResDefault>(
     `/phones/phone-number/${phone_number}/certify-code`,
@@ -21,27 +21,15 @@ export const signUp = (
   phone_number: string,
   profileImg: object,
 ) => {
-  const profile: FormData = new FormData();
-  profile.append(
-    'profile',
-    JSON.stringify({
-      name: profileImg['fileName'],
-      // uri: profileImg['uri'],
-      data: `data:image/png;base64,${profileImg['base64']}`,
-      // uri: `data:image/png;base64,${profileImg['base64']}`,
-      type: profileImg['type'] || 'image/jpeg',
-    }),
-  );
-  // profile.append('profile', profileImg['uri']);
-  profile.append('id', id);
-  profile.append('pw', pw);
-  profile.append('name', name);
-  profile.append('phone_number', phone_number);
-  return apiDefault().post('/parents', profile, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
+  return apiDefault().post<SignUpRes>('/parents', {
+    id,
+    pw,
+    name,
+    phone_number,
+    profile_base64: `data:image/png;base64,${profileImg['base64']}`,
   });
 };
 
-// data:image/jpeg;base64,
+export const checkOverlapId = (parent_id) =>{
+  return apiDefault().get(`/parents/id/${parent_id}/existence`);
+}

@@ -2,7 +2,7 @@ import React, {useCallback, useState} from 'react';
 import CheckPhone from '../../components/UserLogin/SignUp/CheckPhone/CheckPhone';
 import {useSetUser} from '../../lib/hooks/SetUser';
 import {useNavigation} from '@react-navigation/native';
-import {checkIsNotBlank} from '../../lib/utills';
+import {alertHandler, checkIsNotBlank} from '../../lib/utills';
 import {useSelector} from 'react-redux';
 import {ReducerType} from '../../redux/store';
 import {certifyPhone, certifyCode} from '../../lib/api/SignUp';
@@ -18,6 +18,11 @@ const CheckPhoneContainer = () => {
       const res = await certifyPhone(userPhoneNumber);
       if (res.status === 200) setSendMessage(!sendMessage);
     } catch (err) {
+      if (err.response.status === 409) {
+        alertHandler({
+          title: '이미 사용중인 번호입니다.',
+        });
+      }
       console.log(err);
     }
   }, [sendMessage, userPhoneNumber]);

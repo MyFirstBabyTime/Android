@@ -7,6 +7,9 @@ import LoginAction, {
   SET_NAME,
   SET_BABY_NAME,
   SET_PROFILE_PICTURE,
+  SET_USER_UUID,
+  SET_BABY_DATE,
+  SET_BABY_SEX,
 } from '../../actions/SetUser/Login';
 export interface initalInterface {
   userID: string;
@@ -17,6 +20,11 @@ export interface initalInterface {
   userName: string;
   userBabyName: string;
   userPicture: object;
+  userUUID: string;
+  babySex: string;
+  babyYear: string;
+  babyMonth: string;
+  babyDate: string;
 }
 const initialState = {
   userID: '',
@@ -27,6 +35,11 @@ const initialState = {
   userName: '',
   userBabyName: '',
   userPicture: {},
+  userUUID: '',
+  babySex: '',
+  babyYear: '',
+  babyMonth: '',
+  babyDate: ' ',
 };
 const setUserState = (
   state: initalInterface = initialState,
@@ -72,6 +85,21 @@ const setUserState = (
       return {
         ...state,
         userPicture: action.payload,
+      };
+    case SET_USER_UUID:
+      return {
+        ...state,
+        userUUID: action.payload,
+      };
+    case SET_BABY_DATE:
+      return {
+        ...state,
+        [action.payload.key]: action.payload.contents,
+      };
+    case SET_BABY_SEX:
+      return {
+        ...state,
+        babySex: action.payload,
       };
     default:
       return state;

@@ -8,6 +8,7 @@ import {
   setCertificationNumber,
   setName,
   setBabyName,
+  setUserUUID,
 } from '../../../redux/actions/SetUser/Login';
 export const useSetUser = () => {
   const dispatch = useDispatch();
@@ -32,6 +33,9 @@ export const useSetUser = () => {
   const settingBabyName = useCallback((name: string) => {
     dispatch(setBabyName(name));
   }, []);
+  const settingUserUUID = useCallback((uuid: string) => {
+    dispatch(setUserUUID(uuid));
+  }, []);
   return {
     settingID,
     settingPW,
@@ -40,5 +44,6 @@ export const useSetUser = () => {
     settingCertificat,
     settingName,
     settingBabyName,
+    settingUserUUID
   };
 };
