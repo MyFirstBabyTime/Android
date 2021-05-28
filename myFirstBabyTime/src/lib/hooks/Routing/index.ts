@@ -14,3 +14,10 @@ export const useGoToSignUp = () => {
   }, []);
   return goToSignUp;
 };
+export const useGoToMain = () => {
+  const navigation = useNavigation();
+  const goToMain = useCallback(() => {
+    navigation.navigate('Main');
+  }, []);
+  return goToMain;
+};

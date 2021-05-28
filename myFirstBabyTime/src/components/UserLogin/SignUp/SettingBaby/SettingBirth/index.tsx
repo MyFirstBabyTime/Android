@@ -49,7 +49,7 @@ const SettingBirth: React.FC<Props> = ({yearList, dateReturn}) => {
                 setBabyDate({
                   key: 'babyMonth',
                   contents:
-                    monthArr[idx] < 10 ? `0${monthArr[idx]}` : String(monthArr),
+                    monthArr[idx] < 10 ? `0${monthArr[idx]}` : String(monthArr[idx]),
                 }),
               )
             }>

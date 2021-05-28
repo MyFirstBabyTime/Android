@@ -1,13 +1,13 @@
-import apiDefault from '..';
+import apiDefault, { apiDefaultWithToken } from '..';
 
-export const settingBaby = (
+export const settingBaby = async(
   name: string,
   birth: string,
   sex: string,
   profile_base64: string,
   parent_uuid,
 ) => {
-  return apiDefault().post(`/parents/uuid/${parent_uuid}/children`, {
+  return (await apiDefaultWithToken()).post(`/parents/uuid/${parent_uuid}/children`, {
     name,
     birth,
     sex,

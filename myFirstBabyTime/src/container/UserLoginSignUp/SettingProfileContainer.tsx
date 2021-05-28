@@ -7,7 +7,7 @@ import {ReducerType} from '../../redux/store';
 import {useNavigation} from '@react-navigation/native';
 import {alertHandler, checkIsNotBlank} from '../../lib/utills';
 import {loginApi} from '../../lib/api/Login';
-import {AsyncStorage} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const SettingProfileContainer = () => {
   const {userID, userPW, userName, userPhoneNumber, userPicture} = useSelector(
     (store: ReducerType) => store.setUserState,
@@ -15,7 +15,7 @@ const SettingProfileContainer = () => {
 
   const navigation = useNavigation();
   const {settingName, settingUserUUID} = useSetUser();
-  const signUpHandler = useCallback(async () => {
+  const signUpHandler = useCallback( async() => {
     try {
       checkIsNotBlank({userName: {userName, min: 0, max: 20}});
       const res = await signUp(

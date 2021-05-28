@@ -3,6 +3,7 @@ import React, {useCallback} from 'react';
 import {useSelector} from 'react-redux';
 import SettingBaby from '../../components/UserLogin/SignUp/SettingBaby';
 import {settingBaby} from '../../lib/api/Baby';
+import {useGoToMain} from '../../lib/hooks/Routing';
 import {useSetUser} from '../../lib/hooks/SetUser';
 import {ReducerType} from '../../redux/store';
 const SetMyBabyContainer = () => {
@@ -16,6 +17,7 @@ const SetMyBabyContainer = () => {
     userPicture,
     userUUID,
   } = useSelector((store: ReducerType) => store.setUserState);
+  const goToMain = useGoToMain();
   const yearList = useCallback((now: number) => {
     let arr: number[] = [];
     for (let i = 0; i <= now; i++) {
@@ -31,13 +33,14 @@ const SetMyBabyContainer = () => {
   }, []);
   const babyEnrollment = useCallback(async () => {
     try {
-      const res = await settingBaby(
+      await settingBaby(
         userBabyName,
         `${babyYear}-${babyMonth}-${babyDate}`,
         babySex,
         `data:image/png;base64,${userPicture['base64']}`,
         userUUID,
       );
+      goToMain();
     } catch (err) {
       console.log(err);
     }
